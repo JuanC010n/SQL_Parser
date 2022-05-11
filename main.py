@@ -117,7 +117,7 @@ def createDatabase() :
                       ([customerId] INTEGER PRIMARY KEY, [name] TEXT, [age] INTEGER, [Country] TEXT,[City] TEXT,[nOrders] INTEGER)
                       ''')
     c.execute('''
-                      INSERT INTO Customers (customerId,name, age,City,Country)
+                      INSERT OR IGNORE INTO Customers (customerId,name, age,City,Country)
                         VALUES
                             (1234,'Juan',22,'Madrid','Spain'),
                             (235,'James',26,'Madrid','Spain'),
@@ -125,14 +125,14 @@ def createDatabase() :
                             (79326,'Pedro',19,'Sevilla','Spain');
                       ''')
     c.execute('''
-                      INSERT INTO Suppliers (customerId,name, age,Country,City,nOrders)
+                      INSERT OR IGNORE INTO Suppliers (customerId,name, age,Country,City,nOrders)
                         VALUES
                             (1234,'Juan',22,'Madrid','Spain',345),
                             (7893,'Michael',22,'Bath','UK',8879),
                             (79326,'Pedro',19,'Sevilla','Spain',112002);
                       ''')
     c.execute('''
-                      INSERT INTO Prices (productId, price)
+                      INSERT OR IGNORE INTO Prices (productId, price)
                         VALUES
                             (28916,99),
                             (881619,100),
